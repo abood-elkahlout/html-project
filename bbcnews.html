@@ -1,0 +1,938 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBC NEWS</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: Verdana, helvetica, arial, sans-serif;
+        }
+
+
+      .topbar{
+        background-color:#62090b;
+        width: 100%;
+        height: 40px;
+        color: white;
+      }
+
+      .fixedwidth{
+        width:70%;
+        height: 100%;
+        margin: 0 auto;
+        height: 10px;
+      }
+
+      .logodiv{
+        padding: 0;
+        margin: 0;
+        float: left; 
+        border-right: 1px #990000 solid;
+      }
+
+      .logodiv img{
+        margin-top: 9px;
+        padding:0px 10px 10px 10px;
+      }
+      
+
+      .topmenudiv{
+        float: right;
+        margin:0;
+        padding:0;
+      }
+
+
+
+      .topmenudiv ul{
+        display: flex;
+      }
+
+      .topmenudiv ul li a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .topmenudiv ul li a:hover {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+      }
+
+
+      .topmenudiv li{
+        list-style: none;
+        font-weight: bold;
+        font-size:0.9em;
+        border-right:1px solid #990000;
+        height:100%;
+        margin-top: -11px;
+        padding:5px 10px 12px 10px;
+      }
+ 
+      .topmenudiv li:hover{
+        border-bottom:4px #77cdff solid;
+        padding-bottom: 10px;
+      }
+
+      .searchdiv{
+        float: right;
+        padding:5px 0 0 10px;
+      }
+
+      .searchdiv input{
+        height:25px;
+        border:none;
+        padding:10px;
+        margin-top: 3px;
+      }
+
+
+
+      .searchdiv input::placeholder{
+        color:black;
+      }
+
+
+      .newsbar{
+        background-color:#990000;
+        width: 100%;
+        height:116px;
+        color: white;
+      }
+
+      .fixedwidthnewsbar{
+        width:70%;
+        height: 100%;
+        margin: 0 auto;
+        height: 10px;
+      }
+
+      .fixedwidthnewsbar p{
+        margin: 0;
+        padding: 0;
+        font-size:3em;
+        padding-left: 7px;
+        padding-top: 10px;
+        float: left;
+      }
+
+      .fixedwidthnewsbar p span{
+        font-size: 0.7em;
+        padding-left: 20px;
+      }
+
+      .rss{
+        float: right;
+        color: white;
+        padding-top:30px;
+      }
+
+
+
+      /* .fixedsecoundlist{
+        width:70%;
+        height: 100%;
+        margin: 0 auto;
+        height: 10px;
+        margin-top:60px;   
+       padding-top: 10px;
+      }
+
+
+      .fixedsecoundlist ul{
+        background-color: #3E0C0D;
+        display: flex;
+      }
+
+      .fixedsecoundlist ul li{
+        list-style: none;
+        float: left;
+        border-right: 1px red solid;
+        padding-left: 16px;
+       } */
+
+
+     .secoundlist ul {
+      margin: 0;
+      padding: 0;
+      background-color:#3E0C0D;
+      float: left;
+      width:100%;
+     }
+
+     .secoundlist{
+      padding-top: 97px;
+     }
+
+     .secoundlist ul li {
+      list-style: none;
+      float: left;
+      padding-right: 10px;
+      border-right:1px red solid;
+      padding-left: 10px;
+     }
+
+     .secoundlist ul li a{
+      font-size: 0.8em;
+      color: white;
+      text-decoration: none;
+     }
+
+     .secoundlist ul li a:hover{
+      color: black;
+      font-size: 0.9em;
+      background-color: white;
+     }
+
+
+     .content{
+        margin: 0 auto;
+        width:70%;
+        height:100%;
+        color:#535353;
+        
+     }
+
+     .content .navbar{
+        margin: 0 auto;
+        width:100%;
+        background-color:rgb(237, 237, 237);
+        height: 10px;
+     }
+
+     .content .navbar ul{
+      position: relative;
+      clear: both;
+      overflow: auto;
+      margin: 0px auto;
+      background: rgb(237, 237, 237);
+     }
+
+     .content .navbar ul li a{
+      text-decoration: none;
+      position: relative;
+      display: block;
+      font-size: 0.923em;
+      color: rgb(80, 80, 80);
+      padding: 4px 8px;
+     }
+
+     .content .navbar ul li{
+      position: relative;
+      float: left;
+      display: inline;
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+     }
+
+     .date{
+      font-weight: bold;
+     }
+
+     .h1news{
+      margin: 0px 0px 11px;
+      float: left;
+     }
+
+     .h1news:hover{
+      text-decoration: underline;
+     }
+
+
+     .header{
+      width:100%;
+     }
+
+     .watch{
+      background-color: #eeeeee;
+    width: 364px;
+    height: 10px;
+    float: right;
+    padding: 0px 0px 35px 0px;
+    margin: -5px -29px 0px 0px;
+     }
+
+     .secoundsection{
+      width: 420px;
+      position: relative;
+      left: 30px;
+     }
+
+     .sectiontowfromthefirstsection{
+      background-color: black;
+    position: relative;
+    right: 0px;
+    width: 95%;
+    height: 200px;
+     }
+
+
+     .location{
+      width: 100%;
+      height: 205px;
+      background-color: #3c3e51;
+       border: 8px #262835 solid;
+       display: flex;
+     }
+
+     .features{
+      width: 100%;
+      background-color:#eeeeee;
+      height: 800px;
+      margin-top:130px;
+     }
+
+     .imgtext{
+      margin: -20px 0px 94px 0px;
+     }
+
+     .MostPopular{
+      width: 100%;
+      background-color:#eeeeee;
+      height: 350px;
+     }
+
+     .ol{
+      height: 70%;
+      width: 95%;
+      margin: -20px auto 10px auto;
+      background-color: white;
+      line-height: 26px;
+     }
+
+
+     .ol ul li{
+      font-size: 0.780em;
+    list-style: none;
+    margin: 0px 0px 0px -33px;
+    padding-top: 12px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    border-bottom: 1px rgb(223, 203, 203) solid;
+     }
+
+     .ol ul li a{
+      text-decoration: none;
+     }
+
+     .Special{
+      background-color: #eeeeee;
+      width: 100%;
+      height:200px;
+      display: flex;
+
+     }
+
+     .col{
+      display:flex;
+      height:100px;
+      width: 85%;
+     }
+
+
+     .col1{
+      width:30%;
+     }
+
+     .towbicture{
+      margin-top: 310px;
+      width: 100%;
+      display: flex;
+      height:200px;
+     }
+
+
+     .footer{
+      width: 150%;
+      height: 200px;
+      margin-top: 95px;
+     }
+
+
+
+
+
+    </style>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+<div class="container">
+    <div class="topbar">
+        <div class="fixedwidth">
+            <div class="logodiv">
+                <img src="img/bbc.PNG"alt="">
+            </div>
+            <div class="searchdiv">
+              <input type="text" placeholder="search...">
+            </div>
+            <div class="topmenudiv">
+              <ul>
+                <li><a href="#news">News</a></li>
+                <li><a href="#news">Sport</a></li>
+                <li><a href="#news">Weather</a></li>
+                <li><a href="#news">Capital</a></li>
+                <li><a href="#news">Future</a></li>
+                <li><a href="#news">Shop</a></li>
+                <li><a href="#news">TV</a></li>
+                <li><a href="#news">Radio</a></li>
+                <li><a href="#news">More...</a></li>
+              </ul>
+            </div>
+        </div>
+        
+    </div>
+    <div class="break"></div>
+    <div class="newsbar">
+      <div class="fixedwidthnewsbar">
+        <P>NEWS<span>UK</span></P>
+      <div class="rss">RSS</div>
+      <div class="break"></div>
+      <div class="secoundlist">
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">US & Canada</a></li>
+          <li><a href="#">Latin America</a></li>
+          <li><a href="#">UK</a></li>
+          <li><a href="#">Africa</a></li>
+          <li><a href="#">Asia</a></li>
+          <li><a href="#">Europe</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="#">Health</a></li>
+          <li><a href="#">Sci/Environment</a></li>
+          <li><a href="#">Tech</a></li>
+          <li><a href="#">Entertainment</a></li>
+          <li><a href="#">Video</a></li>
+        </ul>
+      </div>
+    </div>  
+  </div>
+</div>
+<div class="break"></div>
+<div class="content">
+  <p>
+    <span class="date">2 April 2014 </span>
+    Last updated at 09:08 ET
+  </p>
+  <div class="header">
+    <h2 class="h1news">
+      <a href="#" style="text-decoration: none;">Pollution to spread across England</a>
+    </h2>
+    <div class="watch">
+      <h2 style="margin: 6px;">Watch/Listen</h2>
+    </div>
+  </div>
+  <div style="width: 100%; height:400px; display: flex;">
+    <div style="width:800px; float: left;">
+      <div style=" float: left; margin-right: 8px;">
+        <img src="img/towernews.jpg" width="361px" alt="">
+      </div>
+     <div style="width:660px;"> 
+      <p style="font-size: 0.8em; margin-top: 0px;">Health warnings have been issued by
+         the government as pollution spreading across England is forecast to hit high levels.
+         Why are pollution levels so high?Saharan dust visible on 
+        carsHow Saharan dust reached the UKWhat will pollution do to us?Air pollution a 'serious issue'
+      </p>
+      <ul>
+        <li style="position: relative; left: 18px; bottom: 12px;">
+          <a href="" style="text-decoration: none; font-size: 0.8em;">Why are pollution levels so high?</a>
+        </li>
+        <li style="position: relative; left: 18px; bottom: 12px;">
+          <a href="" style="text-decoration: none; font-size: 0.8em;">Why are pollution levels so high?</a>
+        </li>
+        <li style="position: relative; left: 18px; bottom: 12px;">
+          <a href="" style="text-decoration: none; font-size: 0.8em;">Why are pollution levels so high?</a>
+        </li>
+      </ul>
+    </div>
+    <hr style="width:94%; right:19px; position: relative; top: 5px;">
+    <div class="sectiontowfromthefirstsection">
+      <div style="width:50%; background-color: red; float: left; height: 100%;"><img src="img/worldwide.jpg" height="100%" width="100%"></div>
+      <div style="width:50%; background-color: rgb(254, 254, 254); float: right; height: 100%;"><h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Former BBC driver 'took own life' <small>NEW</small></a></h4>
+        <p style="font-size: 0.8em; margin-top:-30px; margin-left:14px;">A former BBC driver, who was the first person to be charged as part of Operation Yewtree, took his own life, a coroner rules.
+       </p>
+      </div>
+    </div>
+    <hr style="width:94%; right:19px; position: relative;">
+    <div class="sectiontowfromthefirstsection">
+      <div style="width:50%; background-color: red; float: left; height: 100%;"><img src="img/tvshow.jpg" height="100%" width="100%"></div>
+      <div style="width:50%; background-color: rgb(254, 254, 254); float: right; height: 100%;"><h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Former BBC driver 'took own life' <small>NEW</small></a></h4>
+        <p style="font-size: 0.8em; margin-top:-30px; margin-left:14px;">A former BBC driver, who was the first person to be charged as part of Operation Yewtree, took his own life, a coroner rules.
+       </p>
+      </div>
+    </div>
+    <hr style="width:94%; right:19px; position: relative;">
+    <div class="sectiontowfromthefirstsection">
+      <div style="width:50%; background-color: rgb(255, 255, 255); float: left; height: 100%;">
+        <h4 style="padding-left:13px; position: relative; top:-20px;">
+          <a href="" style="font-size: 0.890em; text-decoration: none;">Pupil's wall death prompts checks' 
+          </a>
+        </h4>
+        <p style="font-size: 0.8em; margin-top:-30px; margin-left:14px;">A former BBC driver, who was the first person to be charged as part of Operation Yewtree, took his own life, a coroner rules.
+        </p>
+        <hr style="width:94%;">
+        <h4 style="padding-left:13px; position: relative; top:-20px;">
+          <a href="" style="font-size: 0.890em; text-decoration: none;">
+            'Dunce v Muppets' at PM's questions
+          </a>
+        </h4>
+        <p style="font-size: 0.8em; margin-top:-30px; margin-left:14px;">A former BBC driver, who was the first person to be charged as part of Operation Yewtree, took his own life, a coroner rules.
+      </div>
+      <div style="width:50%; background-color: rgb(254, 254, 254); float: right; height: 100%;">
+        <ul style="padding: 0px; line-height: 21px;">
+          <li style="font-weight: bold; list-style:none; position: relative; left: 18px; bottom: 12px;">
+            <a href="" style="text-decoration: none; font-size: 0.770em;">Hillsborough police notes 'amended'</a>
+          </li>
+          <li style="font-weight: bold; list-style:none; position: relative; left: 18px; bottom: 12px;">
+            <a href="" style="text-decoration: none; font-size: 0.770em;">E-cigs face curb in public places </a>
+          </li>
+          <li style="font-weight: bold; list-style:none; position: relative; left: 18px; bottom: 12px;">
+            <a href="" style="text-decoration: none; font-size: 0.770em;">Phone-hacking defendant 'hid porn'</a>
+          </li>
+          <li style="font-weight: bold; list-style:none; position: relative; left: 18px; bottom: 12px;">
+            <a href="" style="text-decoration: none; font-size: 0.770em;">Britain hands over Helmand command </a>
+          </li>
+          <li style="font-weight: bold; list-style:none; position: relative; left: 18px; bottom: 12px;">
+            <a href="" style="text-decoration: none; font-size: 0.770em;">Omar Bakri 'on the run' in Lebanon</a>
+          </li>
+          <li style="font-weight: bold; list-style:none; position: relative; left: 18px; bottom: 12px;">
+            <a href="" style="text-decoration: none; font-size: 0.770em;">Soldier in court on terror charge</a>
+          </li>
+          <li style="font-weight: bold; list-style:none; position: relative; left: 18px; bottom: 12px;">
+            <a href="" style="text-decoration: none; font-size: 0.770em;">Benefit changes 'hurting disabled'</a>
+          </li>
+          <li style="font-weight: bold; list-style:none; position: relative; left: 18px; bottom: 12px;">
+            <a href="" style="text-decoration: none; font-size: 0.770em;">Agoraphobic's 'champagne lifestyle'</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr style="width:94%; right:19px; position: relative;">
+    <h2 style="margin-top:0px; font-size: 1.4em; margin-bottom: 0px;">Also in the News</h2>
+    <hr style="width:94%; right:19px; position: relative;">  
+    <div class="sectiontowfromthefirstsection">
+      <div style="width:50%; background-color: rgb(255, 255, 255); float: left; height: 100%;">
+       <div style="display:flex;">
+        <img  src="img/menandweman.jpg" height="40%" width="40%">
+        <p style="font-weight: bold; text-decoration: none; font-size: 0.770em; padding: 0px 0px 0px 18px; margin: 0;"> <a href="" style="text-decoration: none;">Waterloo Road to close doors in 2015</a></p>
+      </div>
+      <h3 style="margin-top: 32px;"><a href="#" style="font-size:0.8em; text-decoration: none;">Local News</a></h3>
+      </div>
+      <div style="width:50%; background-color: rgb(255, 255, 255); float: left; height: 100%;">
+        <div style="display:flex;">
+         <img  src="img/hole.jpg" height="40%" width="40%">
+         <p style="font-weight: bold; text-decoration: none; font-size: 0.770em; padding: 0px 0px 0px 18px; margin: 0;"> <a href="" style="text-decoration: none;">'Themed' dementia care home to open</a></p>
+       </div>
+       <h3 style="margin-top: 32px;"><a href="#" style="font-size:0.8em; text-decoration: none;">Weather</a></h3>
+       </div>
+    </div>
+    <div class="location">
+      <div style="flex:right; width: 50% ;">
+        <h4 style="padding-left: 1px; border-bottom: 1.7px #262835 solid; padding-bottom: 5px; margin-left: 16px;"><a class="story" style="color: white; text-decoration: none;" href="/web/20140402131526/http://www.bbc.com/news/northern_ireland/">Northern Ireland</a></h4>
+         <ul>
+          <li style="font-weight: bold; list-style:none; position: relative; left: -16px; bottom: 12px;">
+            <a href="" style="    color: #ACC2D4;
+            text-decoration: none;
+            font-size: 0.770em;">Police training college put on hold</a>
+          </li>
+          <li style="font-weight: bold; list-style:none; position: relative; left: -16px; bottom: 12px;">
+            <a href="" style="    color: #ACC2D4;
+            text-decoration: none;
+            font-size: 0.770em;">'Fatal error' in NI hospital care</a>
+          </li>
+        </ul>
+        <h4 style="padding-left: 1px; border-bottom: 1.7px #262835 solid; padding-bottom: 5px; margin-left: 16px; margin-top: -4px;"><a style="text-decoration:none; color: white;" href="/web/20140402131526/http://www.bbc.com/news/northern_ireland/">Wales | Cymure</a></h4>
+        <ul>
+         <li style="font-weight: bold; list-style:none; position: relative; left: -16px; bottom: 12px;">
+           <a href="" style="    color: #ACC2D4;
+           text-decoration: none;
+           font-size: 0.770em;">Deal on Visteon pension compensation</a>
+         </li>
+         <li style="font-weight: bold; list-style:none; position: relative; left: -16px; bottom: 12px;">
+           <a href="" style="    color: #ACC2D4;
+           text-decoration: none;
+           font-size: 0.770em;">BBC's 'elementary' devolution errors</a>
+         </li>
+       </ul>
+      </div>
+      <div style="flex: left; width: 50% ;">
+        <h4 style="padding-left: 1px; border-bottom: 1.7px #262835 solid; padding-bottom: 5px; margin-left: 16px;"><a class="story" style="color: white; text-decoration: none;" href="/web/20140402131526/http://www.bbc.com/news/northern_ireland/">Scotland or Alba</a></h4>
+         <ul>
+          <li style="font-weight: bold; list-style:none; position: relative; left: -16px; bottom: 12px;">
+            <a href="" style="    color: #ACC2D4;
+            text-decoration: none;
+            font-size: 0.770em;">Thousands of syringes left on street</a>
+          </li>
+          <li style="font-weight: bold; list-style:none; position: relative; left: -16px; bottom: 12px;">
+            <a href="" style="    color: #ACC2D4;
+            text-decoration: none;
+            font-size: 0.770em;">Missing vulture found on island</a>
+          </li>
+        </ul>
+        <h4 style="padding-left: 1px; border-bottom: 1.7px #262835 solid; padding-bottom: 5px; margin-left: 16px; margin-top: -4px;"><a style="text-decoration:none; color: white;" href="/web/20140402131526/http://www.bbc.com/news/northern_ireland/">England</a></h4>
+        <ul>
+         <li style="font-weight: bold; list-style:none; position: relative; left: -16px; bottom: 12px;">
+           <a href="" style="    color: #ACC2D4;
+           text-decoration: none;
+           font-size: 0.770em;">No evidence from PC murder accused</a>
+         </li>
+         <li style="font-weight: bold; list-style:none; position: relative; left: -16px; bottom: 12px;">
+           <a href="" style="    color: #ACC2D4;
+           text-decoration: none;
+           font-size: 0.770em;">Hospital slams CQC for 'PR disaster'</a>
+         </li>
+       </ul>
+      </div>
+    </div>
+
+    <h2 style="margin-top:20px; font-size: 1.4em; margin-bottom: 0px;">Our Expert</h2>  
+    <hr style="width:94%; right:19px; position: relative;">
+
+
+    <div style="display:flex;">
+      <img  src="img/mark.jpg"  width="143px">
+      <div style="width: 200px;">
+      <h2 style="margin-top:20px; font-size: 1.4em; margin-bottom: 0px; margin-left: 10px;"><a href="" style="text-decoration:none;">Mark Easton</a></h2>
+      <p style="font-size: 0.9em; margin-bottom: 0px; margin-left: 10px; margin-top: 2px;"><a href="" style=" color: #D2700E; text-decoration:none;">Home editor</a></p>
+      <div style="width: 317px;
+      display: flex;">
+        <p><a href="" style="font-size: 12px;
+          line-height: 0px;
+          font-weight: bold;
+          text-decoration: none;
+          margin: 6px;
+          padding: 2px 6px 2px 4px;
+          border-right: 1px black solid;">More from Mark</a>
+        </p>
+        <p><a href="" style="font-size: 12px;
+          line-height: 0px;
+          font-weight: bold;
+          text-decoration: none;
+          margin: 6px;
+          padding: 2px 4px 2px 2px;"><small>Follow</small> Mark on Twitter</a>
+        </p>
+      </div>
+    </div>
+    </div>
+    <div style="width:100%; background-color:#ededed;">
+      <p style="padding: 20px;"><strong>@BBCMarkEaston via Twitter</strong>
+        Who Do We Think We Are? Take part in BBC #selfieday and reveal your true self. Details here http://t.co/JeZwrOn80N #wdwtwa</p>
+    </div>
+    <h2 style="font-size:1.4em; margin-bottom:8px; margin-top: 23px;">Special Reports</h2> 
+    <div class="Special">
+      <img src="img/SpecialReports.jpg" width="50%"  alt="">
+      <div style="background-color: #262835; width: 50%;" class="Queen">
+        <div style="background-color: #D1700E; height:65%;">
+        <h4 style="padding-left: 14px; margin-top: 0px; padding-top: 10px; font-size: 0.9em;"><a style="text-decoration:none; color: white;" href="/web/20140402131526/http://www.bbc.com/news/northern_ireland/">Queen's Baton Relay</a></h4>
+        <p style=" font-size: 0.8em;
+        color: white;
+        padding: 0px 0px 0px 15px;
+        margin-top: -10px;">70 nations and territories, 288 days - Mark Beaumont travels the Commonwealth</p>
+      </div>
+      <div style="background-color: #EDEDED; height:35%;">
+        <p style="font-size: 0.769em;
+    font-weight: bold;
+    padding: 11px 0px 10px 15px;
+    margin-top: 0px;">
+    More Special Reports:</p>
+        <p style="font-size: 0.8em; padding: 0px 0px 0px 15px; margin-top: -10px;"><a style="text-decoration: none; font-weight: bold; font-size: 0.899em;" href="">Scotland's future</a></p>
+      </div>
+      </div>
+    </div>
+ 
+    <h2 style="font-size:1.4em; margin-bottom:8px; margin-top: 23px;">More from the UK</h2>
+    <hr style="width:94%; right:19px; position: relative;">
+    <div class="col">
+      <div class="col1">
+        <h3 style="margin-top: 0px;
+        border-bottom: 1px #b9b5b5 solid;
+        padding-right: 95px;
+        margin-right: 29px;
+        padding-bottom: 7px;"><a href="#" style="font-size:0.8em; text-decoration: none;">Sport</a></h3>
+        <img src="img/sport.jpg" width="150px" height="70px" alt="">
+        <p style="font-size: 0.780em;
+        padding-right: 21px;
+        line-height: 19px;">
+          Man Utd have a great chance - Moyes
+          Manchester United boss David Moyes is confident 
+          his side can eliminate holders Bayern Munich from the
+           Champions League.
+          Chelsea & Vitesse links investigated
+          Pietersen axing took guts - Cook</p>
+      </div>
+      <div class="col1">
+        <h3 style="margin-top: 0px;
+        border-bottom: 1px #b9b5b5 solid;
+        padding-right: 95px;
+        margin-right: 29px;
+        padding-bottom: 7px;"><a href="#" style="font-size:0.8em; text-decoration: none;">Magazine</a></h3>
+        <img src="img/child.jpg" width="150px" height="70px" alt="">
+        <p style="font-size: 0.780em;
+        padding-right: 21px;
+        line-height: 19px;">
+    How the secret police tracked my childhood
+    Fighting the system used to be dangerous anywhere in Eastern Europe. For one protester from a small Romanian village it was disastrous - and for his family.
+
+    Ukraine's paper-shredding activists
+    What freedom looks like to you</p>
+      </div>
+      <div class="col1">
+        <h3 style="margin-top: 0px;
+        border-bottom: 1px #b9b5b5 solid;
+        margin-right: 29px;
+        padding-bottom: 7px;"><a href="#" style="font-size:0.8em; text-decoration: none;">UK Politics</a></h3>
+        <img src="img/solider.jpg" width="150px" height="70px" alt="">
+        <p style="font-size: 0.780em;
+        padding-right: 21px;
+        line-height: 19px;">
+          Legal challenges 'undermine forces'
+          An "unprecedented" number of legal challenges to the Ministry of Defence could mean commanders withholding troops from battle, MPs warn.
+
+          In full: Prime Minister's Questions
+          BBC criticised over climate reports
+        </p>
+      </div>
+    </div>
+    <h2 style="position: relative;
+    font-size: 1.4em;
+    top: 300px;"><a style="text-decoration:none;" href="">From BBC Travel</a></h2>  
+    <div class="towbicture">
+      <img style="width: 45%; padding-right:16px;" src="img/food.jpg" alt="">
+      <img style="width: 45%; padding-right:16px;" src="img/hall.jpg" alt="">
+    </div>
+    <hr style="width:94%; right:19px; position: relative; top: 15px;">
+    <h2 style="margin-top:20px; font-size: 1.4em; margin-bottom: 0px;">Democracy Live</h2>  
+    <hr style="width:94%; right:19px; position: relative; ">
+    <div style="display:flex;">
+      <img  src="img/hoseofcommon.jpg" height="20%" width="20%">
+      <div>
+      <p style="font-weight: bold; text-decoration: none; font-size: 0.9em; padding: 0px 0px 0px 18px; margin: 0;"> <a href="" style="text-decoration: none;">House of Commons</a></p>
+      <p style="font-size: 0.780em;
+       margin: 6px 19px;">
+     MPs are taking part in an opposition day debate on an energy price freeze.</p>
+    </div>
+    </div>
+    <hr style="width:94%; right:19px; position: relative; top: 10px;">
+    <p style="font-weight: bold; text-decoration: none; font-size: 0.9em; padding: 10px 0px 0px 0px; margin: 0;">Find a representative</p>
+    <div>
+      <input style="padding-left:10px; width: 91%; border-color:#dddddd; border-width: 0.5px; margin-top: 20px; height: 23px;" type="text" placeholder="Enter the name of who you are looking for, a place or full postcode e.g. CF10 3NQ">
+      <button style="margin-left: -6px;
+      background-color: white;
+      border: 1px solid #dddd;" type="submit"><i style=" padding: 4px;" class="fas fa-search"></i></button>     
+    </div>
+
+    <div class="footers" style=" width: 150%;
+    position: relative;
+    top: 71px;
+    left: 15px;">
+      <div style="width: 80%; height: 55px;">
+        <h2 style="float:left; margin-top:20px; font-size: 1.4em; margin-bottom: 0px;">Services</h2> 
+        <h2 style="float: right; margin-top:20px; font-size: 1.4em; margin-bottom: 0px;"><a href="" style="text-decoration: none;" >About BBC News</a></h2> 
+      </div>
+
+    </div>
+ 
+    <div class="footer">
+      <div class="icons" style="float:left; display:flex; display: flex; width: 65%;">
+        <div class="icon" style="padding-right:50px;">
+          <i class="fas fa-mobile fa-2x" style="padding-left:18px;"></i>
+          <p><a href="" style="font-size: 12px;
+            line-height: 0px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 6px;
+            padding: 2px 6px 2px 4px;">Mobile</a>
+          </p>
+        </div>
+        <div class="icon" style="padding-right:50px;">
+          <i class="fas fa-computer fa-2x" style="padding-left:18px;"></i>
+          <p><a href="" style="font-size: 12px;
+            line-height: 0px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 6px;
+            padding: 2px 6px 2px 4px;">Connected TV</a>
+          </p>
+        </div>
+        <div class="icon" style="padding-right:50px;">
+          <i class="fas fa-wifi fa-2x" style="padding-left:18px;"></i>
+          <p><a href="" style="font-size: 12px;
+            line-height: 0px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 6px;
+            padding: 2px 6px 2px 4px;">News Feed</a>
+          </p>
+        </div>
+        <div class="icon" style="padding-right:50px;">
+          <i class="fas fa-triangle-exclamation fa-2x" style="padding-left:11px;"></i>
+          <p><a href="" style="font-size: 12px;
+            line-height: 0px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 6px;
+            padding: 2px 6px 2px 4px;">Alert</a>
+          </p>
+        </div>
+        <div class="icon" style="padding-right:50px;">
+          <i class="fas  fa-envelope fa-2x" style="padding-left:18px;"></i>
+          <p><a href="" style="font-size: 12px;
+            line-height: 0px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 6px;
+            padding: 2px 6px 2px 4px;">Mobile</a>
+          </p>
+        </div>
+      </div>
+      <div style="float:left; width: 170px;" class="bbcnews">
+        <p style="font-size: 0.870em; font-weight: bold; margin: -10px;"><a style="text-decoration: none; " href="">Editors' blog BBC College of JournalismNews sourcesMedia ActionEditorial Guidelines</a></p>
+      </div>
+      <hr style="width: 100%;
+      position: relative;
+      top: 34px;">
+      <div class="lastfooter" style="width: 100%; margin-top:50px;">
+        <div style="width: 40%; float: left;" class="bbcicon"><img src="img/bbc.PNG" alt="">
+          <p style="font-size: 0.770em;
+    margin: 14px 2px;">
+       <strong>BBC © 2014 </strong> The BBC is not responsible for the content of external sites. Read more.</p>
+        </div>
+        <div style="width:20%; float:left;">
+          <ul style="margin: 0px 0px 0px 63px;">
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">Mobile Sites</a></li>
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">Advertise With Us</a></li>
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">Ad Choices</a></li>
+        </ul>
+      </div>
+        <div style="width: 20%; float: left;">         
+           <ul style="margin: 0px 0px 0px 63px;">
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">Terms of Use</a></li>
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">Privacy</a></li>
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">Cookies</a></li>
+        </ul></div>
+        <div style="width: 20%; float: left;">       
+          <ul style="margin: 0px 20px 0px 40px;">
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">About the BBC</a></li>
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">Accessibility Help</a></li>
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">Contact the BBC</a></li>
+          <li style=" font-size: 0.700em; list-style: none;"><a style="text-decoration:none;" href="">Parental Guidance</a></li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+    <!-- secound section -->
+        <div class="secoundsection">
+      <div class="towimg">
+        <img width="50%" style="float: left;"  src="img/writng.jpg" alt="">
+        <img width="50%" style="float: left;" src="img/folder.jpg" alt="">
+      </div>
+      <div class="break"></div>
+      <div class="features">
+        <h2 style="padding: 10px;">Features & Analysis</h2>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/cigarte.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Toxic topic?</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">How safe are e-cigarettes – and should they be banned?</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/colors.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Counting colours</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">How to reach the seven-a-day fruit and veg target</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/space.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Angle of descent</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">The landscape bordering Heathrow Airport</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/history.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Lessons from history</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">Nixon, Reagan and Sarkozy's TV debate tips for Clegg and Farage</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/ww1.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">True grit</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">The many battles faced by WW1's nurses</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/party.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Party like it's 2099</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">How to create a hi-tech celebration</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/filmmaker.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Being ginger</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">How jibe about his hair inspired a film-maker</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/exam.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Beyond exams</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">The schools assessing pupils' other talents</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/birdie.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Watch the birdie</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">Mammal Photographer of the Year winning images BBC NATURE</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/blood.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">New blood</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">Choreographer Matthew Bourne on casting 300 novice dancers</p>
+          </div>
+        </div>
+        <div class="imgtext">
+          <img style="float: left; padding-left: 10px;" src="img/flood.jpg" alt="">
+          <div style="width:65%; float:left;">
+            <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="font-size: 0.890em; text-decoration: none;">Migrant 'flood'</a></h4>
+            <p style="font-size: 0.8em; margin-top:-37px; margin-left:14px;">Press ponders prospect of 500,000 immigrants in five years</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="MostPopular">
+        <h2 style="padding: 10px;">Most Popular</h2>
+        <h4 style="padding-left:13px; position: relative; top:-20px;"><a href="" style="color: #505050; font-size: 0.890em; text-decoration: none;">From UK in the last week</a></h4>
+        <div class="ol">
+         <ul>
+          <li><a href="">UK submarine joins search for plane</a></li>
+          <li><a href="">UK submarine joins search for plane</a></li>
+          <li><a href="">UK submarine joins search for plane</a></li>
+          <li><a href="">UK submarine joins search for plane</a></li>
+          <li><a href="">UK submarine joins search for plane</a></li>
+         </ul>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+</div>
+</body>
+</html>
