@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <form action="">
+        Email <input id="email" style="margin-left: 10px;" type="email" placeholder="example@gmail.com" value="" required><small id="emailerr" style="color: red; display:none;">please enter your email</small>
+        <br>
+        <br>
+        telephone <input id="tele" style="margin-left: 10px;" type="text" placeholder="059*******" value="" required><small id="teleerr" style="color: red; display:none;">please enter telephone</small>
+        <br>
+        <br>
+        password <input id="password" style="margin-left: 10px;" type="password" placeholder="password" value="" required> <small id="passerr" style="color: red; display:none;">please enter more than 6 char</small>
+        <br>
+        <br>
+        password confirm 
+        <input type="password" id="confirmpassword">
+         <span id="confirmError" style="color: red; display: none;">the password not the same</span>
+         <br>
+        <button id="send">send</button>
+    </form>
+   <br>
+   <br>
+   <ul>
+    <li><small id="er1">email should be email</small></li>
+    <li><small id="enterval" style="color: black;">please enter your informtion</small></li>
+   </ul>
+   <script>
+    // validate form
+
+    $("#send").click(function() {
+
+        event.preventDefault();
+
+        //allinputvalidate
+  
+       
+        //validate email
+        var email = /^[^@]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      
+        
+         var emailval=$('#email').val();
+         if (emailval == "" || emailval == " " ) {
+            $("#emailerr").show();
+         }else{
+            $("#emailerr").hide();
+            $("#enterval").css("color","black");
+            if(email.test(emailval)) {
+            $("#er").html("please enter your informtion");
+            $("#er").css("color","black");
+        }else{
+            $("#er").html("email not correct");
+            $("#er").css("color","red");
+        }
+         }
+
+
+  //telephone valid
+  var telephone=/^05\d{8}$/
+  var telephoneval=$("#tele").val();
+  if(telephoneval==""|| telephoneval==""){
+    $("#teleerr").show();
+  }else{
+   $("#teleerr").hide();
+    if(telephone.test(telephoneval)) {
+    $("#er").html("please enter your informtion");
+    $("#er").css("color","black");
+  }else{
+    $("#er").html("telephone  not correct");
+    $("#er").css("color","red");
+  }
+  }
+
+  // password validate
+  var confirm  = $("#confirmpassword").val();
+   var password =$("#password").val();
+   if (password.length < 6) {
+    $("#passerr").show();
+   }else{
+     $("#passerr").hide();
+   }
+
+   if (password !== confirm) {
+  $("#confirmError").show();
+  valid = false;
+} else {
+  $("#confirmError").hide();
+}
+
+
+    })
+
+
+</script>
+</body>
+</html>
