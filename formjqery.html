@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="">
-        Email <input id="email" style="margin-left: 10px;" type="email" placeholder="example@gmail.com" value="" required><small id="emailerr" style="color: red; display:none;">please enter your email</small>
+        Email <input id="email" style="margin-left: 10px;" type="email" placeholder="example@gmail.com" value="" required><small id="emailerr" style="color: red; display:none;">please enter your email</small><small id="secoundemailerr" style="display: none; color: red;">invalid email</small>
         <br>
         <br>
         telephone <input id="tele" style="margin-left: 10px;" type="text" placeholder="059*******" value="" required><small id="teleerr" style="color: red; display:none;">please enter telephone</small>
@@ -36,27 +36,25 @@
 
         event.preventDefault();
 
-        //allinputvalidate
-  
        
         //validate email
-        var email = /^[^@]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        var emailval = $('#email').val().trim();
+  var email = /^[^@]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (emailval === "") {
+    $("#emailerr").show();
+  } else {
+    $("#emailerr").hide();
+    $("#enterval").css("color", "black");
+
+    if (email.test(emailval)) {
+        $("#secoundemailerr").hide();
+    } else {
       
-        
-         var emailval=$('#email').val();
-         if (emailval == "" || emailval == " " ) {
-            $("#emailerr").show();
-         }else{
-            $("#emailerr").hide();
-            $("#enterval").css("color","black");
-            if(email.test(emailval)) {
-            $("#er").html("please enter your informtion");
-            $("#er").css("color","black");
-        }else{
-            $("#er").html("email not correct");
-            $("#er").css("color","red");
-        }
-         }
+        $("#secoundemailerr").show();
+    }
+  }
 
 
   //telephone valid
