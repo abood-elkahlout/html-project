@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePlayer</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #menubar{
+            width: 100%;
+            height:40px;
+            background-color:#e0e0e0;
+            border-bottom: 1px solid grey;
+        }
+
+        #logo{
+            padding: 5px 0 0 20px;
+            font-weight: bold;
+            font-size:120%;
+            float: left;
+        }
+
+        #buttondiv{
+            float: right;
+            padding: 5px 10px 0px 0px;
+        }
+
+        #run{
+            font-size: 120%;
+        }
+
+        #toggels{
+            list-style:none;
+            margin:0 auto;
+            width: 204px;
+            border: 1px solid grey;
+            border-radius: 3px;
+            height: 27px;
+            padding: 0;
+            position: relative;
+            top: 7px;
+        }
+
+        #toggels li {
+            float:left;
+            padding:5px 5px;
+            border-right:1px solid grey;
+        }
+
+        .clear{
+            clear:both;
+        }
+
+        .codecontainer{
+            height: 100%;
+            width: 50%;
+            float: left;
+            position: relative;
+        }
+
+        .codecontainer textarea{
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-right: 1px solid grey;
+            border-left:1px solid grey ;
+            font-family: monotype;
+            font-size:90%;
+            padding: 5px;
+        }
+
+
+        .codelabel{
+            position: absolute;
+            right:10px;
+            top: 10px;
+
+        }
+
+
+        #Csscontainer , #Javascriptcontainer{
+            display: none;
+        }
+
+        #resultcontainer iframe{
+            height: 100%;
+            position: relative;
+            left: 20px;
+            width: 100%;
+            border: none;
+
+        }
+
+        .selected{
+            background-color: grey;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="menubar">
+            <div id="logo">
+                CodePlayer
+            </div>
+            <div id="buttondiv">
+                <button id="run">Run</button>
+            </div>
+            <ul id="toggels">
+                <li class="toggle selected">Html</li>
+                <li class="toggle">Css</li>
+                <li class="toggle">Javascript</li>
+                <li class="toggle selected" style="border: none;">Result</li>
+            </ul>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="codecontainer" id="Htmlcontainer">
+            <div class="codelabel">Html</div>
+            <textarea name="" id="htmlcode">abood</textarea>
+        </div>
+        <div class="codecontainer" id="Csscontainer">
+            <div class="codelabel">css</div>
+            <textarea name="" id="csscode">html {background-color:blue;
+                height:100%}</textarea>
+        </div>
+        <div class="codecontainer" id="Javascriptcontainer">
+            <div class="codelabel">js</div>
+            <textarea name="" id="Javascriptcode"></textarea>
+        </div>
+        <div class="codecontainer" id="Resultcontainer">
+            <div class="codelabel">result</div>
+            <iframe id="resultframe"></iframe>
+        </div>
+    </div>
+
+    <script>
+         var windowheight=$(window).height(); // the height of whole window
+         var windowwidth=$(window).width();
+         var munebarheight=$("#menubar").height(); // the height of menubar
+         var codecontainerheight=windowheight-munebarheight;
+         $(".codecontainer").height(codecontainerheight+"px");
+         var counter=0;
+         $(".toggle").click(function(){  
+            $(this).toggleClass("selected");
+            
+        
+            var activediv=$(this).html();
+             $("#"+activediv+"container").toggle();
+             
+             var showingdivs=$(".codecontainer").filter(function(){
+                return($(this).css("display")!="none");
+             }).length;
+
+             var width = 100/showingdivs;
+
+             $(".codecontainer").css("width", width+"%");
+
+         })
+         
+
+         $("#run").click(function(){
+            $("iframe").contents().find("html").html("<style>"+ $("#csscode").val()+"</style>"+$("#htmlcode").val());
+
+            document.getElementById("resultframe").contentWindow.eval($("#Javascriptcode").val());
+         });
+
+    </script>
+</body>
+</html>
